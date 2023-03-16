@@ -2,7 +2,7 @@
 name = "financas-pessoais"
 version = "0.1.0"
 description = "App para controle financeiro pessoal"
-authors = ["Marcio Ribeiro de Oliveira - 2119504 <marcio.oliveira@ifro.edu.br>"]
+authors = ["Marcio Ribeiro de Oliveira - <marcio035@gmail.com"]
 license = "Apache-2.0"
 readme = "README.md"
 packages = [{include = "financas_pessoais"}]
@@ -10,6 +10,7 @@ packages = [{include = "financas_pessoais"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 Django = "^4.1.7"
+decouple = "^0.0.7"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.12.0"
