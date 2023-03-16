@@ -10,7 +10,7 @@ packages = [{include = "financas_pessoais"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 Django = "^4.1.7"
-decouple = "^0.0.7"
+python-decouple = "^3.8"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.12.0"
