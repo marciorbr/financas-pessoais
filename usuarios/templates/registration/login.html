@@ -1,0 +1,49 @@
+{% extends 'base/base_login.html' %}
+{% load static %}
+
+
+{% block 'conteudo' %}
+{% if msg %}
+<div class="alert alert-warning" role="alert">
+  <p class="text-center">{{ msg | safe }}</p>
+</div>
+{% endif %}
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <div class=" card">
+        <div class="card-header text-center">
+          <img src="{% static 'img/saco-de-dinheiro32.png' %}" alt="main_logo">
+          <span class="ms-1 mb-2"> AppFinanças</span>
+        </div>
+        <div class="card-body">
+          <form role="form text-left" method="post" action="">
+
+            {% csrf_token %}
+
+            <label>Endereço de email</label>
+            <div class="mb-3 mt-2">
+              {{ form.email }}
+            </div>
+            <label>Senha</label>
+            <div class="mb-3 mt-2">
+              {{ form.password }}
+            </div>
+
+            <div class="text-center">
+              <button type="submit" name="login" class="btn btn-primary w-100 mt-3 mb-2">Logar</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center pt-0 px-lg-2 px-1">
+          <p class="mb-2 mt-2 text-sm mx-auto">
+            Não tem uma conta?
+            <a href="#" class="text-info">Cadastre-se</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

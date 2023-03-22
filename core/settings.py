@@ -57,6 +57,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+LOGIN_REDIRECT_URL = 'financas:dashboard'
+LOGOUT_REDIRECT_URL = "usuarios:login"
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
