@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.urls import reverse
 
-from .forms import LoginForm
+from .forms import LoginForm, CadastroUsuarioForm
 
+
+# TODO Padronizar template_name = 'register.html'
 def login_view(request):
 
     form = LoginForm(request.POST or None)
@@ -24,3 +27,27 @@ def login_view(request):
             msg = 'Erro na validação do formulário'
 
     return render(request, "registration/login.html", {"form": form, "msg": msg})
+
+
+# TODO Configurar menssagens de alertas
+def cadastro_view(request):
+    
+    msg = None
+    template_name = 'usuarios/cadastro.html'
+
+    if request.method == "POST":
+        form = CadastroUsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('usuarios:login'))
+        
+        msg = 'Erro ao tentar cadastrar novo usuário'
+
+    form = CadastroUsuarioForm()
+
+    context = {
+        'form': form,
+        'msg': msg, 
+    }
+
+    return render(request, template_name, context)
