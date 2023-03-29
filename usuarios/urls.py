@@ -8,4 +8,5 @@ app_name = 'usuarios'
 urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('cadastro/', views.cadastro_view, name='cadastro'),
 ]
